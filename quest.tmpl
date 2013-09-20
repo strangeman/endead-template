@@ -1,6 +1,6 @@
 {% extends "base.tmpl" %}
 {% block content %}
-<p align="center"><img class="caption cen" src="{{ quest.image }}" /></p>
+<p class="centered"><img class="caption cen" src="{{ quest.image }}" alt=''/></p>
 <p><h3>{{ quest.text|safe }}</h3></p>
 
 <ul class="icons">
@@ -10,4 +10,3 @@
 {% endfor %}
 </ul>
 {% endblock %}
-
