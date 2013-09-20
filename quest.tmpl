@@ -1,0 +1,13 @@
+{% extends "base.tmpl" %}
+{% block content %}
+<p align="center"><img class="caption cen" src="{{ quest.image }}" /></p>
+<p><h3>{{ quest.text|safe }}</h3></p>
+
+<ul class="icons">
+{% for decision in decisions %}
+<li><a href='/{{token}}/{{decision.dec_hash}}'>{% if decision.check %}<i class="icon-check icon-2x pull-left">{% else %}<i class="icon-check-empty icon-2x pull-left">
+{% endif %}</i >{{ decision.text|safe }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+

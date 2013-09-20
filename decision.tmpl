@@ -1,0 +1,10 @@
+{% extends "base.tmpl" %}
+
+{% block content %}
+<p align="center"><img class="caption" src="{{ decision.image }}" /></p>
+<p>{{ decision.text_after|safe }}</p>
+
+<p>Вы получаете {{ decision.reward }} минут {% if reward_type %}бонуса{% else %}штрафа{% endif %}.</p>
+<p>Бонусный код: {{ decision.code|safe }}<p>
+
+<p><a href="/{{token}}"><button class=" square"><i class="icon-caret-left"></i> Назад</button></a></p>{% endblock %}
