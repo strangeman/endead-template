@@ -1,0 +1,15 @@
+{% extends "base.tmpl" %}
+{% block content %}
+{% for point in tree %}
+<h2>{{ point.quest.name }} - {{ point.quest.image }}</h2>
+<p>{{ point.quest.text|safe }}</p>
+<ul class="alt">{% for dec in point.dec_list %}
+<li><strong class="report">{{ dec.name }} - {{ dec.image }}</strong></li>
+<p><strong class="report">Действие:</strong> {{ dec.text|safe }}</p>
+<p><strong class="report">Результат:</strong> {{ dec.text_after|safe }}</p>
+<p>Вы получаете {{ dec.reward }} {% if dec.reward_type %}бонуса{% else %}штрафа{% endif %}.</p>
+<p>Бонусный код: {{ dec.code|safe }}<p>
+{% endfor %}</ul><hr class="alt1">
+{% endfor %}
+
+{% endblock %}

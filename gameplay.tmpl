@@ -1,0 +1,13 @@
+{% extends "base.tmpl" %}
+{% block content %}
+<h2>{{ team }}</h2>
+<ul>{% for token in tokens %}
+<li>{{ token.linked_quest.name }} - http://{{ host }}/{{token.tok_hash}}</li>
+<p>Выбранный вариант: {% if token.decision %}{{token.decision.name}}{% else %}отсутствует{% endif %}</p> 
+{% if token.decision %}<p><strong class="report">Действие:</strong> {{ token.decision.text|safe }}</p>
+<p><strong class="report">Результат:</strong> {{ token.decision.text_after|safe }}</p>
+<p>Команда получила {{ token.decision.reward }} {% if token.decision.reward_type %}бонуса{% else %}штрафа{% endif %}.</p>
+<p>Бонусный код: {{ token.decision.code|safe }}<p>{% endif %}
+{% endfor %}</ul>
+<hr class="alt1">
+{% endblock %}

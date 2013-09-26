@@ -1,0 +1,8 @@
+{% extends "base.tmpl" %}
+{% block content %}
+<h2>{{ quest.name }}</h2>
+<p>{{ quest.text|safe }}</p>
+<ul>{% for token in tokens %}
+<li>{{ token.team.name }} - http://{{ host }}/{{token.tok_hash}}</li>
+{% endfor %}</ul>
+{% endblock %}

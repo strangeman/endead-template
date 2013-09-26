@@ -1,0 +1,6 @@
+{% extends "base.tmpl" %}
+
+{% block content %}
+<form action="{{ path }}" method="post">{% csrf_token %}
+{{ form.as_p }} <input type="submit" value=">>" />
+</form>{% endblock %}
