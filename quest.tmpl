@@ -9,4 +9,22 @@
 {% endif %}</i >{{ decision.text|safe }}</a></li>
 {% endfor %}
 </ul>
+
+ <script>
+  function quest(kind) {
+    $.getJSON("/q", { token: kind }, function(json){
+    	$('#jsontest').html(json['quest']);
+    });
+    alert($(jsontest).attr( "class" ))
+  }
+  function addClickHandlers() {
+    $("#token").click( function() { quest("809a781426e275841dc25aaba2a2d6d3") });
+    $('#jsontest').html('Blah');
+ }
+ $(document).ready(addClickHandlers);
+  </script>
+  <p> Do you want some <span id="token">quest</span>? </p>
+
+ <div id='jsontest' class='blah weqweqwe'></div>
+</div>
 {% endblock %}
