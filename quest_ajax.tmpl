@@ -1,5 +1,3 @@
-{% extends "base.tmpl" %}
-{% block content %}
 <p class="centered"><img class="caption" src="{{ quest.image }}" alt=''/></p>
 <p><h3>{{ quest.text|safe }}</h3></p>
 
@@ -9,4 +7,3 @@
 {% endif %}</i >{{ decision.text|safe }}</a></li>
 {% endfor %}
 </ul>
-{% endblock %}
