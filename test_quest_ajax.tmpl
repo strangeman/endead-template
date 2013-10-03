@@ -1,16 +1,17 @@
 {% extends "base.tmpl" %}
 {% block content %}
 
- <script>
-  function quest(kind) {
-    $('#quest').html('&nbsp;').load('/q/' + kind);
-  }
-  function addClickHandlers() {
-    $("#token").click( function() { quest("809a781426e275841dc25aaba2a2d6d3") });
- }
- $(document).ready(addClickHandlers);
-  </script>
-  <p><span id="token">Click for take quest</span></p>
-  <hr class="alt1" />
-  <div id='quest'></div>
+<script>
+    var quest_hash = "809a781426e275841dc25aaba2a2d6d3";
+    function quest(hash) {
+        $('#data').html('&nbsp;').load('/q/' + hash);
+    }
+    function addClickHandlers_quest() {
+        $("#start").click( function() { quest(quest_hash) });
+    }
+    $(document).ready(addClickHandlers_quest);
+</script>
+<p><span id="start">Click for take quest</span></p>
+<hr class="alt1" />
+<div id='data'></div>
 {% endblock %}
