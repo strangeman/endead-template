@@ -3,10 +3,24 @@
 <p class="centered"><img class="caption" src="{{ quest.image }}" alt=''/></p>
 <p><h3>{{ quest.text|safe }}</h3></p>
 
-<ul class="icons">
+{% if is_ajax %}<script>
+    function decision(hash_q, hash_d) {
+        $('#data').html('&nbsp;').load('/d/' + hash_q + '/' + hash_d);
+    }
+    function addClickHandlers_decision() {
+        $("#decisions li").click(function() { decision("{{token}}", this.id) });
+    }
+    $(document).ready(addClickHandlers_decision);
+</script>{% endif %}
+
+<ul class="icons" id="decisions">
 {% for decision in decisions %}
-<li><a href='/{{token}}/{{decision.dec_hash}}'>{% if decision.check %}<i class="icon-check icon-2x pull-left">{% else %}<i class="icon-check-empty icon-2x pull-left">
-{% endif %}</i >{{ decision.text|safe }}</a></li>
+<li id="{{decision.dec_hash}}">{% if not is_ajax %}<a href='/{{token}}/{{decision.dec_hash}}'>{% endif %}{% if decision.check %}<i class="icon-check icon-2x pull-left">{% else %}<i class="icon-check-empty icon-2x pull-left">
+{% endif %}</i >{{ decision.text|safe }}{% if not is_ajax %}</a>{% endif %}</li>
 {% endfor %}
 </ul>
 {% endblock %}
+
+
+
+

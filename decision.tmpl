@@ -7,4 +7,4 @@
 <p>Вы получаете {{ decision.reward }} {% if reward_type %}бонуса{% else %}штрафа{% endif %}.</p>
 <p>Бонусный код: {{ decision.code|safe }}<p>
 
-<p><a href="/{{token}}"><button class=" square"><i class="icon-caret-left"></i> Назад</button></a></p>{% endblock %}
+{% if not is_ajax %}<p><a href="/{{token}}"><button class=" square"><i class="icon-caret-left"></i> Назад</button></a></p>{% endif %}{% endblock %}

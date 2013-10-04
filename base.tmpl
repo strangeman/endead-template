@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% if not is_ajax %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>{% block title %}Walking Dead{% endblock %}</title>
@@ -27,7 +27,8 @@
 
 </script>
 
-<div class="col_3"></div><div class="col_6 visible">{% block content %}{% endblock %}</div><div class="col_3"></div>
+<div class="col_3"></div><div class="col_6 visible">{% endif %}{% block content %}{% endblock %}{% if not is_ajax %}</div><div class="col_3"></div>
 
 </body>
 </html>
+{% endif %}
