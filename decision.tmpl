@@ -1,6 +1,23 @@
 {% extends "base.tmpl" %}
 
 {% block content %}
+{% if is_ajax %}
+<script>
+	var bonuscode =  {{ decision.code|safe }}
+    function pushcode() {
+    	if($("#BonusAnswer").length) {
+	        $("#BonusAnswer").val(bonuscode);
+	        $("#BonusAnswer").parent().submit();
+        }
+        else
+         {
+	        $("#Answer").val(bonuscode);
+	        $("#Answer").parent().submit();
+        }
+    }
+    $(document).ready(pushcode);
+</script>
+{% endif %}
 <p class="centered"><img class="caption" src="{{ decision.image }}" alt=''/></p>
 <p>{{ decision.text_after|safe }}</p>
 
