@@ -1,9 +1,9 @@
 {% extends "base.tmpl" %}
 
 {% block content %}
-{% if is_ajax %}
+{% if taken %}
 <script>
-	var bonuscode =  {{ decision.code|safe }}
+	var bonuscode =  "{{ decision.code|safe }}"
     function pushcode() {
     	if($("#BonusAnswer").length) {
 	        $("#BonusAnswer").val(bonuscode);
