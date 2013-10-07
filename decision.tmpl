@@ -18,7 +18,7 @@
     $(document).ready(pushcode);
 </script>
 {% endif %}
-<p class="centered"><img class="caption" src="{{ decision.image }}" alt=''/></p>
+<p class="centered"><img class="caption" src="{% if is_ajax %}{{ site_root }}{% endif %}{{ decision.image }}" alt=''/></p>
 <p>{{ decision.text_after|safe }}</p>
 
 <p>Вы получаете {{ decision.reward }} {% if reward_type %}бонуса{% else %}штрафа{% endif %}.</p>
