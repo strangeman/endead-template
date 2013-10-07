@@ -1,7 +1,7 @@
 {% extends "base.tmpl" %}
 
 {% block content %}
-{% if taken %}
+{% if not taken %}
 <script>
 	var bonuscode =  "{{ decision.code|safe }}"
     function pushcode() {
